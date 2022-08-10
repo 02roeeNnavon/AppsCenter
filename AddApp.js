@@ -18,6 +18,7 @@ const publish = () => {
 }
 
 const validateName = (event) => {
+    //TODO: regex
     let textEl = event.target
     textEl.classList.remove('is-valid','is-invalid');
     if (textEl.value.length < 4 || textEl.value.length > 30){
