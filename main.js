@@ -10,7 +10,7 @@ const getData = () => {
 document.addEventListener("DOMContentLoaded", () => {
     createCards(getData())
     document.querySelector('#addApp').addEventListener('click',() => {window.location.href = './addApplication.html'})
-    document.querySelector('#search').addEventListener('input',search)
+    document.querySelector('#search').addEventListener('input',search);
 });
 
 const createCards = (data) => {
@@ -18,24 +18,24 @@ const createCards = (data) => {
     cards.innerHTML = '';
     for (const cardData of data) {
         let row = document.createElement('div');
-        row.classList.add('row',"justify-content-center");
+        row.classList.add('row',);
 
         let card = document.createElement('div');
-        card.classList.add('card','mb-3','col-6','p-0');
+        card.classList.add('card','mb-3','col-12','p-0','border-0');
         
         let innerRow = document.createElement('div');
         innerRow.classList.add('row','g-0');
 
         let imgCol = document.createElement('div');
-        imgCol.classList.add('col-4');
+        imgCol.classList.add('col-2');
 
         let img = document.createElement('img');
         img.src = `.\\images\\${cardData.id}\\${cardData.imageUrl}`;   
-        img.classList.add('card-img-top');
+        img.classList.add('card-img-top','rounded-circle');
         img.addEventListener('error',() => {img.src = '.\\images\\Help.png'})
         
         let bodyCol =document.createElement('div');
-        bodyCol.classList.add('col-8');
+        bodyCol.classList.add('col-9');
 
         let body = document.createElement('div');
         body.classList.add('card-body');
@@ -46,7 +46,9 @@ const createCards = (data) => {
 
         let description = document.createElement('p');
         description.classList.add('card-text','m-0');
-        description.innerHTML = cardData.desc;
+        let desc = cardData.desc;
+        desc != ''? true:desc = 'this app does not have description';
+        description.innerHTML = desc;
 
         let price = document.createElement('p');
         price.classList.add('card-text','m-0');
@@ -54,7 +56,9 @@ const createCards = (data) => {
 
         let companyName = document.createElement('p');
         companyName.classList.add('card-text','m-0');
-        companyName.innerHTML = `<small>Company name: ${cardData.companyName}</small>`;
+        let compName = cardData.companyName;
+        compName != ''? true:compName = 'this app does not have a company'
+        companyName.innerHTML = `<small>Company name: ${compName}</small>`;
 
         imgCol.appendChild(img);
         innerRow.appendChild(imgCol);
