@@ -40,7 +40,7 @@ const createCards = (data) => {
         let body = document.createElement('div');
         body.classList.add('card-body');
 
-        let title = document.createElement('h5');
+        let title = document.createElement('h4');
         title.classList.add('card-title','mb-4');
         title.innerHTML = cardData.name;
 
