@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Center</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <img
+            src="./images/AppsCenter.png"
+            alt=""
+            class="col-8 img-fluid mb-5"
+          />
+          <form class="row mb-3">
+            <div class="col-6">
+              <input
+                type="search"
+                class="form-control p-0 col-6"
+                id="search"
+              />
+            </div>
+            <input
+              type="button"
+              value="+ Publish new App"
+              class="btn btn-success p-0 col-3"
+              id="addApp"
+            />
+          </form>
+          <div id="cards"></div>
+        </div>
+      </div>
+    </div>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../applications.js"></script>
+    <script src="../views/main.js" type="module"></script>
+  </body>
+</html>
