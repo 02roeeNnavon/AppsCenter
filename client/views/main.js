@@ -37,7 +37,8 @@ const createCards = (data) => {
                             <p class="m-0 h1 col remove text-center" data-app-id = "${cardData.id}">&#128465</p>
                         </div>
                         <div class = "col-1 justify-content-center my-auto">
-                            <a class="m-0 h1 text-center text-reset text-decoration-none" href="modify.html">&#9999;</a>
+                            <a class="m-0 h1 text-center text-reset text-decoration-none" href="addApplication.html?mode=edit&id=${cardData.id}&name=${cardData.name}&imageUrl=${imageUrl}&desc=${desc}&price=${cardData.price}&compName=${compName}
+                            ">&#9999;</a>
                         </div>
                     </div>
                 </div>

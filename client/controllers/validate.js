@@ -6,7 +6,7 @@ const isNameValid = (document) => {
 
 const isPriceValid = (document) => {
     let priceEl = document.querySelector('#price');
-    const priceRegex = /^[0-9]+$/;
+    const priceRegex = /^[0-9+.]+$/;
     return priceRegex.test(priceEl.value);
 }
 

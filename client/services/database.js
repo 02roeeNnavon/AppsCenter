@@ -19,13 +19,33 @@ const getData = async () => {
 
 const remove = async (id) => {
   const requestOptions = {
-    method: 'DELETE',
-    redirect: 'follow'
+    method: "DELETE",
+    redirect: "follow",
   };
-  
-  const result = await fetch(`http://localhost:3000/api/apps/${id}`, requestOptions)
+
+  const result = await fetch(
+    `http://localhost:3000/api/apps/${id}`,
+    requestOptions
+  );
   const json = await result.json();
   return json;
-}
+};
 
-export { addItemToTheList, getData, remove};
+const update = async (id, payload) => {
+  let myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  let raw = JSON.stringify(payload);
+
+  var requestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
+  const result = await fetch(`http://localhost:3000/api/apps/${id}`, requestOptions);
+  const json = await result.json();
+  return json;
+};
+
+export { addItemToTheList, getData, remove, update };
