@@ -16,4 +16,8 @@ const remove = async (id) => {
     const result = await dbQuery('DELETE FROM roee.t_apps WHERE "id" = $1 RETURNING "id"',[id])
     return result;
 }
-module.exports = {getAll,add,remove};
+const update = async (id,payload) => {
+    const result = await dbQuery('UPDATE roee.t_apps SET imageUrl = $1, "name" = $2, price = $3, description = $4, companyName = $5 WHERE "id" = $6 RETURNING *',[...payload,id])
+    return result
+}
+module.exports = {getAll,add,remove,update};

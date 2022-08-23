@@ -1,6 +1,6 @@
 const express = require('express');
 const { nanoid } = require("nanoid");
-const { getAll,add,remove } = require('./queries.js');
+const { getAll,add,remove,update } = require('./queries.js');
 const app = express()
 app.use(express.json());
 const cors=require("cors");
@@ -13,7 +13,6 @@ app.get('/api/apps',(req,res) => {
 
 app.post('/api/apps',(req,res) => {
     let body = req.body;
-    console.log(body);
     const payload = [nanoid(),body.imageUrl,body.name,body.price,body.description,body.companyName,new Date()];
     const result = add(payload);
     result.then((data) => {res.send(data.rows)});
@@ -22,6 +21,14 @@ app.post('/api/apps',(req,res) => {
 app.delete('/api/apps/:id', (req,res) => {
     let id = req.params.id;
     const result = remove(id);
+    result.then((data) => {res.send(data.rows)});
+})
+
+app.put('/api/apps/:id', (req,res) => {
+    let id = req.params.id;
+    let body = req.body;
+    const payload = [body.imageUrl,body.name,body.price,body.description,body.companyName];
+    const result = update(id,payload);
     result.then((data) => {res.send(data.rows)});
 })
 
