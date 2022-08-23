@@ -33,9 +33,9 @@ const createCards = (data) => {
                             <p class = "card-text m-0"><small>Company name: ${compName}</small></p>
                         </div>
                     </div>
-                    <div class = "col-1 justify-content-center my-auto">
-                        <p class="h1 col remove text-center" data-app-id = "${cardData.id}">&#128465</p>
-                    </div>
+                        <div class = "col-2 justify-content-center my-auto">
+                            <p class="h1 col remove text-center" data-app-id = "${cardData.id}">&#128465</p>
+                        </div>
                     </div>
                 </div>
             </div>
