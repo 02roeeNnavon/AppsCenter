@@ -17,4 +17,15 @@ const getData = async () => {
   return json;
 };
 
-export { addItemToTheList, getData };
+const remove = async (id) => {
+  const requestOptions = {
+    method: 'DELETE',
+    redirect: 'follow'
+  };
+  
+  const result = await fetch(`http://localhost:3000/api/apps/${id}`, requestOptions)
+  const json = await result.json();
+  return json;
+}
+
+export { addItemToTheList, getData, remove};

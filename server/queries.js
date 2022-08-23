@@ -8,8 +8,12 @@ const getAll = async () => {
 }
 
 const add = async (payload) => {
-    console.log(payload);
     const result = await dbQuery('INSERT INTO roee.t_apps("id",imageUrl,"name",price,description,companyName,createdAt) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING "id"',[...payload]);
     return result;
 }
-module.exports = {getAll,add};
+
+const remove = async (id) => {
+    const result = await dbQuery('DELETE FROM roee.t_apps WHERE "id" = $1 RETURNING "id"',[id])
+    return result;
+}
+module.exports = {getAll,add,remove};
